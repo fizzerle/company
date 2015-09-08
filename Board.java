@@ -71,16 +71,10 @@ public class Board extends JPanel implements KeyListener,ActionListener{
         g2d.drawImage(img, 0, 0, this);
 
         //draws the board with 1 Pixel small Rectangles
-
+        g2d.setColor(Color.WHITE);
         for(int i = 0; i < Spielfeld.length;i++){
             for(int j = 0; j < Spielfeld[i].length;j++){
-
-                if(Spielfeld[i][j] == 'R')g2d.setColor(Color.RED);
-                else if(Spielfeld[i][j] == 'G')g2d.setColor(Color.YELLOW);
-                else if(Spielfeld[i][j] == 'B')g2d.setColor(Color.BLUE);
-                else if(Spielfeld[i][j] == 'S' || Spielfeld[i][j] == 'N')g2d.setColor(Color.BLACK);
-                else if(Spielfeld[i][j] == 'H')g2d.setColor(Color.LIGHT_GRAY);
-                if(Spielfeld[i][j] != '.') g2d.fillRect(i, j, 1, 1);
+                if(Spielfeld[i][j] == '.') g2d.fillRect(i, j, 1, 1);
             }
         }
         //Player
@@ -379,6 +373,11 @@ public class Board extends JPanel implements KeyListener,ActionListener{
 
     public void gameover (String Message){
         timer.stop();
+        for(int i = 0; i < Spielfeld.length;i++){
+            for(int j = 0; j < Spielfeld[i].length;j++){
+                Spielfeld[i][j] = randomColour;
+            }
+        }
         int answer = JOptionPane.showConfirmDialog(this,"Wollen Sie nochmal spielen?" , Message, JOptionPane.YES_NO_OPTION);
         if(answer == 0)reset();
         else System.exit(0);
