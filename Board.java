@@ -14,7 +14,7 @@ public class Board extends JPanel implements KeyListener,ActionListener{
 
     private final int WIDTH = 200;
     private final int HEIGHT = 200;
-    //Das habe Ich geändert
+
     private int x;
     private int y;
 
@@ -64,6 +64,12 @@ public class Board extends JPanel implements KeyListener,ActionListener{
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+
+
+        ImageIcon image = new ImageIcon("image.jpg");
+        Image img = image.getImage();
+        g2d.drawImage(img, 0, 0, this);
+
         //draws the board with 1 Pixel small Rectangles
 
         for(int i = 0; i < Spielfeld.length;i++){
@@ -88,6 +94,8 @@ public class Board extends JPanel implements KeyListener,ActionListener{
         //Progressbar
         g2d.setColor(Color.GREEN);
         g2d.drawString(String.valueOf(progress) + "%", 170, 195);
+
+
 
     }
 
