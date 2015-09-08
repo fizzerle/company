@@ -14,7 +14,7 @@ public class Board extends JPanel implements KeyListener,ActionListener{
 
     private final int WIDTH = 200;
     private final int HEIGHT = 200;
-
+    //Das habe Ich geändert
     private int x;
     private int y;
 
